@@ -1,17 +1,25 @@
 # Expense Tracker
 
-A simple Python program to record and calculate personal expenses.
+A Python-based expense management application that stores and tracks personal expenses using CSV file handling.
 
 ## Features
 
 - Add expenses
-- View expenses
+- Categorize expenses
+- Store records permanently
+- View expense history
 - Calculate total spending
 
 ## Concepts Used
 
-- Lists
+- Python functions
 - Loops
 - Conditional statements
-- User input
-- Basic data handling
+- CSV file handling
+- Data storage
+
+## Future Improvements
+
+- Graphical User Interface (GUI)
+- Data visualization
+- Monthly expense reports
