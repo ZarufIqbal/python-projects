@@ -1,38 +1,71 @@
-expenses = []
+import csv
+
+file_name = "expenses.csv"
+
+
+def add_expense():
+    name = input("Enter expense name: ")
+    category = input("Enter category: ")
+    amount = input("Enter amount: ")
+
+    file = open(file_name, "a", newline="")
+
+    writer = csv.writer(file)
+    writer.writerow([name, category, amount])
+
+    file.close()
+
+    print("Expense added successfully!")
+
+
+def view_expenses():
+    file = open(file_name, "r")
+
+    reader = csv.reader(file)
+
+    for row in reader:
+        print(row)
+
+    file.close()
+
+
+def total_expense():
+    total = 0
+
+    file = open(file_name, "r")
+
+    reader = csv.reader(file)
+
+    next(reader)
+
+    for row in reader:
+        total += float(row[2])
+
+    file.close()
+
+    print("Total Expense:", total)
+
 
 while True:
+
     print("\nExpense Tracker")
     print("1. Add Expense")
     print("2. View Expenses")
-    print("3. View Total")
+    print("3. Total Expense")
     print("4. Exit")
 
-    choice = input("Enter your choice: ")
+    choice = input("Enter choice: ")
 
     if choice == "1":
-        name = input("Enter expense name: ")
-        amount = float(input("Enter amount: "))
-
-        expenses.append([name, amount])
-
-        print("Expense added!")
+        add_expense()
 
     elif choice == "2":
-        print("\nYour Expenses:")
-
-        for expense in expenses:
-            print(expense[0], "-", expense[1])
+        view_expenses()
 
     elif choice == "3":
-        total = 0
-
-        for expense in expenses:
-            total += expense[1]
-
-        print("Total Expense:", total)
+        total_expense()
 
     elif choice == "4":
-        print("Thank you!")
         break
 
     else:
